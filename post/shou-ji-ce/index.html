@@ -1,0 +1,258 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>收集册 | wlgo 博客</title>
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1592829523589">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="收集册 | wlgo 博客 - Atom Feed" href="https://wl-go.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="
+对平时开发中遇到的一下小技巧、小知识点的汇总记录，方便快速查找🎈🔨⚙👀
+
+Android添加忽略文件(SVN)
+可以在.idea/workspace.xml中&lt;component name=&quot;ChangeListMa..." />
+    <meta name="keywords" content="收集册" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://wl-go.github.io">
+  <img class="avatar" src="https://wl-go.github.io/images/avatar.png?v=1592829523589" alt="">
+  </a>
+  <h1 class="site-title">
+    wlgo 博客
+  </h1>
+  <p class="site-description">
+    记录学习中的点点滴滴！
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/wl-go" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="https://weibo.com/u/7347507009" target="_blank">
+          <i class="ri-weibo-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              收集册
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-06-22
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://wl-go.github.io/tag/9Y_dgHUyj/" class="post-tag">
+                  # 收集册
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <blockquote>
+<p>对平时开发中遇到的一下小技巧、小知识点的汇总记录，方便快速查找🎈🔨⚙👀</p>
+</blockquote>
+<h2 id="android添加忽略文件svn">Android添加忽略文件(SVN)</h2>
+<p>可以在<code>.idea/workspace.xml</code>中<code>&lt;component name=&quot;ChangeListManager&quot;&gt;</code>节点下添加一下内容</p>
+<pre><code class="language-Gradle">
+&lt;ignored mask=&quot;*.iml&quot; /&gt;
+
+&lt;ignored path=&quot;local.properties&quot; /&gt;
+
+&lt;ignored path=&quot;.gradle/&quot; /&gt;
+
+&lt;ignored path=&quot;.idea/&quot; /&gt;
+
+&lt;ignored path=&quot;app/build/&quot; /&gt;
+
+&lt;ignored path=&quot;build/&quot; /&gt;
+
+&lt;ignored path=&quot;其他模块名/build/&quot; /&gt;    
+
+&lt;ignored path=&quot;app/release/&quot; /&gt;
+</code></pre>
+<h2 id="获取android-key的sha1">获取Android Key的sha1</h2>
+<pre><code class="language-bash">keytool -list -v -keystore C:\xxx.jks
+</code></pre>
+<h2 id="获取https证书字符串">获取https证书字符串</h2>
+<pre><code class="language-bash">keytool -printcert -rfc -file c:\xxx.cer
+</code></pre>
+<h2 id="linux-查端口占用-杀进程">Linux 查端口占用、杀进程</h2>
+<pre><code class="language-bash">lsof -i tcp:8080  
+
+kill -9 PID
+</code></pre>
+<h2 id="反编译apk">反编译APK</h2>
+<pre><code class="language-bash">apktool d xxx.apk
+apktool d -s xxx.apk (只反编译资源)
+
+#生成apk
+apktool b XXX 
+
+#生成签名key
+keytool -genkey -alias demo.keystore -keyalg RSA -validity 40000 -keystore demo.keystore 
+
+#重新打包
+jarsigner -verbose -keystore demo.keystore -storepass 123456  -signedjar new.apk -digestalg SHA1 -sigalg MD5withRSA old.apk demo.keystore
+</code></pre>
+<h2 id="curl-使用get-post">Curl 使用(GET、POST)</h2>
+<pre><code class="language-bash"># GET
+curl -v 192.168.0.1:8080/xxx
+	
+# POST
+curl -v 192.168.0.1:8080/xxx -d 'x1=1&amp;x2=2'
+</code></pre>
+<h2 id="防止edittext弹出键盘后顶起布局">防止EditText弹出键盘后顶起布局</h2>
+<ol>
+<li>方法一，在oncreate中加入</li>
+</ol>
+<pre><code>getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+</code></pre>
+<ol start="2">
+<li>方法二，在AndroidManifest.xml中加入</li>
+</ol>
+<pre><code> android:windowSoftInputMode=&quot;adjustPan|stateAlwaysHidden&quot;
+</code></pre>
+<h2 id="android-浏览器sqlite查看工具">Android 浏览器SQLite查看工具</h2>
+<pre><code> debugCompile ‘com.amitshekhar.android:debug-db:1.0.0’
+</code></pre>
+<h2 id="mac-安装openjdk">Mac 安装OpenJDK</h2>
+<pre><code class="language-bash">brew tap AdoptOpenJDK/openjdk
+brew install &lt;version&gt; 
+&lt;version&gt; 可以选择adoptopenjdk-openjdk8、adoptopenjdk-openjdk9、adoptopenjdk-openjdk10
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#android%E6%B7%BB%E5%8A%A0%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6svn">Android添加忽略文件(SVN)</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96android-key%E7%9A%84sha1">获取Android Key的sha1</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96https%E8%AF%81%E4%B9%A6%E5%AD%97%E7%AC%A6%E4%B8%B2">获取https证书字符串</a></li>
+<li><a href="#linux-%E6%9F%A5%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8-%E6%9D%80%E8%BF%9B%E7%A8%8B">Linux 查端口占用、杀进程</a></li>
+<li><a href="#%E5%8F%8D%E7%BC%96%E8%AF%91apk">反编译APK</a></li>
+<li><a href="#curl-%E4%BD%BF%E7%94%A8get-post">Curl 使用(GET、POST)</a></li>
+<li><a href="#%E9%98%B2%E6%AD%A2edittext%E5%BC%B9%E5%87%BA%E9%94%AE%E7%9B%98%E5%90%8E%E9%A1%B6%E8%B5%B7%E5%B8%83%E5%B1%80">防止EditText弹出键盘后顶起布局</a></li>
+<li><a href="#android-%E6%B5%8F%E8%A7%88%E5%99%A8sqlite%E6%9F%A5%E7%9C%8B%E5%B7%A5%E5%85%B7">Android 浏览器SQLite查看工具</a></li>
+<li><a href="#mac-%E5%AE%89%E8%A3%85openjdk">Mac 安装OpenJDK</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  
+  <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

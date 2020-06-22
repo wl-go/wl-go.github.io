@@ -1,22 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://wl-go.github.io</id>
-    <title>wlgo 博客</title>
-    <updated>2020-06-22T12:38:58.006Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://wl-go.github.io"/>
-    <link rel="self" href="https://wl-go.github.io/atom.xml"/>
-    <subtitle>记录学习中的点点滴滴！</subtitle>
-    <logo>https://wl-go.github.io/images/avatar.png</logo>
-    <icon>https://wl-go.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, wlgo 博客</rights>
-    <entry>
-        <title type="html"><![CDATA[Room数据库操作]]></title>
-        <id>https://wl-go.github.io/post/room-shu-ju-ku-cao-zuo/</id>
-        <link href="https://wl-go.github.io/post/room-shu-ju-ku-cao-zuo/">
-        </link>
-        <updated>2020-06-22T12:37:02.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="room">Room</h1>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Room数据库操作 | wlgo 博客</title>
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1592829523589">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Room数据库操作 | wlgo 博客 - Atom Feed" href="https://wl-go.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="Room
+
+Room持久性库在 SQLite 的基础上提供了一个抽象层，让用户能够在充分利用 SQLite 的强大功能的同时，获享更强健的数据库访问机制。
+处理大量结构化数据的应用可极大地受益于在本地保留这些数据。最常见的用例是 缓存相关数..." />
+    <meta name="keywords" content="Android" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://wl-go.github.io">
+  <img class="avatar" src="https://wl-go.github.io/images/avatar.png?v=1592829523589" alt="">
+  </a>
+  <h1 class="site-title">
+    wlgo 博客
+  </h1>
+  <p class="site-description">
+    记录学习中的点点滴滴！
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/wl-go" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="https://weibo.com/u/7347507009" target="_blank">
+          <i class="ri-weibo-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Room数据库操作
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-06-22
+              </span>
+              <span>
+                17 min read
+              </span>
+              
+                <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="post-tag">
+                  # Android
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="room">Room</h1>
 <blockquote>
 <p>Room持久性库在 SQLite 的基础上提供了一个抽象层，让用户能够在充分利用 SQLite 的强大功能的同时，获享更强健的数据库访问机制。</p>
 <p>处理大量结构化数据的应用可极大地受益于在本地保留这些数据。最常见的用例是 <strong>缓存相关数据</strong> 。这样，当设备无法访问网络时，用户仍可在离线状态下浏览相应内容。设备之后重新连接到网络后，用户发起的所有内容更改都会同步到服务器。</p>
@@ -496,86 +583,135 @@ Room 还会验证查询的返回值，这样的话，当返回的对象中的字
     }
 </code></pre>
 <p><strong>您还可以将 @TypeConverters 限制为不同的范围，包括个别实体、DAO 和 DAO 方法。</strong></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[收集册]]></title>
-        <id>https://wl-go.github.io/post/shou-ji-ce/</id>
-        <link href="https://wl-go.github.io/post/shou-ji-ce/">
-        </link>
-        <updated>2020-06-22T12:28:16.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>对平时开发中遇到的一下小技巧、小知识点的汇总记录，方便快速查找🎈🔨⚙👀</p>
-</blockquote>
-<h2 id="android添加忽略文件svn">Android添加忽略文件(SVN)</h2>
-<p>可以在<code>.idea/workspace.xml</code>中<code>&lt;component name=&quot;ChangeListManager&quot;&gt;</code>节点下添加一下内容</p>
-<pre><code class="language-Gradle">
-&lt;ignored mask=&quot;*.iml&quot; /&gt;
 
-&lt;ignored path=&quot;local.properties&quot; /&gt;
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#room">Room</a>
+<ul>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96">添加依赖</a></li>
+<li><a href="#room-%E5%8C%85%E5%90%AB-3-%E4%B8%AA%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6">Room 包含 3 个主要组件：</a>
+<ul>
+<li><a href="#database">Database</a></li>
+<li><a href="#entity">Entity</a></li>
+<li><a href="#dao">DAO</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8room%E5%AE%9E%E4%BD%93%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AEentity">使用Room实体定义数据（@Entity）</a>
+<ul>
+<li><a href="#entity%E4%B8%AD%E5%90%84%E6%B3%A8%E8%A7%A3%E7%90%86%E8%A7%A3%E5%8F%8A%E4%BD%BF%E7%94%A8">Entity中各注解理解及使用</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB">定义对象之间的关系</a>
+<ul>
+<li><a href="#%E5%AE%9A%E4%B9%89%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BB">定义一对多关系</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%B5%8C%E5%A5%97%E5%AF%B9%E8%B1%A1">创建嵌套对象</a></li>
+<li><a href="#%E5%AE%9A%E4%B9%89%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BB">定义多对多关系</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE">创建视图</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE-databaseview">创建视图 @DatabaseView</a></li>
+<li><a href="#%E5%B0%86%E8%A7%86%E5%9B%BE%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E8%81%94">将视图与数据库相关联</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E6%9F%A5%E8%AF%A2">使用视图查询</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8-room-dao-%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE">使用 Room DAO 访问数据</a>
+<ul>
+<li><a href="#insert">Insert</a></li>
+<li><a href="#update">Update</a></li>
+<li><a href="#delete">Delete</a></li>
+<li><a href="#query-query">Query （@Query）</a>
+<ul>
+<li><a href="#%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2">简单查询</a></li>
+<li><a href="#%E5%B0%86%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E7%BB%99%E6%9F%A5%E8%AF%A2">将参数传递给查询</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%88%97%E7%9A%84%E5%AD%90%E9%9B%86">返回列的子集</a></li>
+<li><a href="#%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%E7%9A%84%E9%9B%86%E5%90%88">传递参数的集合</a></li>
+<li><a href="#%E5%8F%AF%E8%A7%82%E5%AF%9F%E6%9F%A5%E8%AF%A2">可观察查询</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E5%A4%9A%E4%B8%AA%E8%A1%A8%E6%A0%BC">查询多个表格</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8-kotlin-%E5%8D%8F%E7%A8%8B%E7%BC%96%E5%86%99%E5%BC%82%E6%AD%A5%E6%96%B9%E6%B3%95">使用 Kotlin 协程编写异步方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%A1%AB%E5%85%85%E6%95%B0%E6%8D%AE%E5%BA%93">填充数据库</a></li>
+<li><a href="#%E8%BF%81%E7%A7%BB-room-%E6%95%B0%E6%8D%AE%E5%BA%93">迁移 Room 数据库</a>
+<ul>
+<li><a href="#%E5%A6%A5%E5%96%84%E5%A4%84%E7%90%86%E7%BC%BA%E5%A4%B1%E7%9A%84%E8%BF%81%E7%A7%BB%E8%B7%AF%E5%BE%84">妥善处理缺失的迁移路径</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8-room-%E5%BC%95%E7%94%A8%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE">使用 Room 引用复杂数据</a></li>
+</ul>
+</li>
+</ul>
 
-&lt;ignored path=&quot;.gradle/&quot; /&gt;
+              </div>
+            </div>
+          </article>
+        </div>
 
-&lt;ignored path=&quot;.idea/&quot; /&gt;
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://wl-go.github.io/post/shou-ji-ce/">
+              <h3 class="post-title">
+                收集册
+              </h3>
+            </a>
+          </div>
+        
 
-&lt;ignored path=&quot;app/build/&quot; /&gt;
+        
 
-&lt;ignored path=&quot;build/&quot; /&gt;
+        <div class="site-footer">
+  
+  <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
 
-&lt;ignored path=&quot;其他模块名/build/&quot; /&gt;    
+      </div>
+    </div>
 
-&lt;ignored path=&quot;app/release/&quot; /&gt;
-</code></pre>
-<h2 id="获取android-key的sha1">获取Android Key的sha1</h2>
-<pre><code class="language-bash">keytool -list -v -keystore C:\xxx.jks
-</code></pre>
-<h2 id="获取https证书字符串">获取https证书字符串</h2>
-<pre><code class="language-bash">keytool -printcert -rfc -file c:\xxx.cer
-</code></pre>
-<h2 id="linux-查端口占用-杀进程">Linux 查端口占用、杀进程</h2>
-<pre><code class="language-bash">lsof -i tcp:8080  
+    <script>
+      hljs.initHighlightingOnLoad()
 
-kill -9 PID
-</code></pre>
-<h2 id="反编译apk">反编译APK</h2>
-<pre><code class="language-bash">apktool d xxx.apk
-apktool d -s xxx.apk (只反编译资源)
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-#生成apk
-apktool b XXX 
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
 
-#生成签名key
-keytool -genkey -alias demo.keystore -keyalg RSA -validity 40000 -keystore demo.keystore 
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
 
-#重新打包
-jarsigner -verbose -keystore demo.keystore -storepass 123456  -signedjar new.apk -digestalg SHA1 -sigalg MD5withRSA old.apk demo.keystore
-</code></pre>
-<h2 id="curl-使用get-post">Curl 使用(GET、POST)</h2>
-<pre><code class="language-bash"># GET
-curl -v 192.168.0.1:8080/xxx
-	
-# POST
-curl -v 192.168.0.1:8080/xxx -d 'x1=1&amp;x2=2'
-</code></pre>
-<h2 id="防止edittext弹出键盘后顶起布局">防止EditText弹出键盘后顶起布局</h2>
-<ol>
-<li>方法一，在oncreate中加入</li>
-</ol>
-<pre><code>getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-</code></pre>
-<ol start="2">
-<li>方法二，在AndroidManifest.xml中加入</li>
-</ol>
-<pre><code> android:windowSoftInputMode=&quot;adjustPan|stateAlwaysHidden&quot;
-</code></pre>
-<h2 id="android-浏览器sqlite查看工具">Android 浏览器SQLite查看工具</h2>
-<pre><code> debugCompile ‘com.amitshekhar.android:debug-db:1.0.0’
-</code></pre>
-<h2 id="mac-安装openjdk">Mac 安装OpenJDK</h2>
-<pre><code class="language-bash">brew tap AdoptOpenJDK/openjdk
-brew install &lt;version&gt; 
-&lt;version&gt; 可以选择adoptopenjdk-openjdk8、adoptopenjdk-openjdk9、adoptopenjdk-openjdk10
-</code></pre>
-]]></content>
-    </entry>
-</feed>
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
