@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://github.com/wl-go/wl-go.github.io.git</id>
-    <title>Wlgo Site</title>
-    <updated>2020-06-22T05:33:16.900Z</updated>
+    <title>wlgo 博客</title>
+    <updated>2020-06-22T05:42:01.387Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://github.com/wl-go/wl-go.github.io.git"/>
     <link rel="self" href="https://github.com/wl-go/wl-go.github.io.git/atom.xml"/>
     <subtitle>记录学习中的点点滴滴！</subtitle>
     <logo>https://github.com/wl-go/wl-go.github.io.git/images/avatar.png</logo>
     <icon>https://github.com/wl-go/wl-go.github.io.git/favicon.ico</icon>
-    <rights>All rights reserved 2020, Wlgo Site</rights>
+    <rights>All rights reserved 2020, wlgo 博客</rights>
+    <entry>
+        <title type="html"><![CDATA[关于]]></title>
+        <id>https://github.com/wl-go/wl-go.github.io.git/post/about/</id>
+        <link href="https://github.com/wl-go/wl-go.github.io.git/post/about/">
+        </link>
+        <updated>2020-06-22T05:39:51.000Z</updated>
+        <content type="html"><![CDATA[<p>欢迎光临！</p>
+]]></content>
+    </entry>
 </feed>
