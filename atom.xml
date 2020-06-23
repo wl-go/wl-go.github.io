@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wl-go.github.io</id>
     <title>wlgo 博客</title>
-    <updated>2020-06-23T06:16:53.602Z</updated>
+    <updated>2020-06-23T12:28:33.309Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wl-go.github.io"/>
     <link rel="self" href="https://wl-go.github.io/atom.xml"/>
@@ -10,16 +10,6 @@
     <logo>https://wl-go.github.io/images/avatar.png</logo>
     <icon>https://wl-go.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, wlgo 博客</rights>
-    <entry>
-        <title type="html"><![CDATA[Android 三方库学习]]></title>
-        <id>https://wl-go.github.io/post/android-san-fang-ku-xue-xi/</id>
-        <link href="https://wl-go.github.io/post/android-san-fang-ku-xue-xi/">
-        </link>
-        <updated>2020-06-23T06:12:41.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="动态权限">动态权限</h1>
-<p><a href="https://mp.weixin.qq.com/s/7RpGzTjXo9rnHRCVEnrYWQ">PermissionX</a></p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[学习计划]]></title>
         <id>https://wl-go.github.io/post/xue-xi-ji-hua/</id>
@@ -66,6 +56,10 @@
 <td style="text-align:left">Android<code>第三方库</code>学习记录📝</td>
 <td style="text-align:left"></td>
 </tr>
+<tr>
+<td style="text-align:left">学习IOS开发</td>
+<td style="text-align:left"></td>
+</tr>
 </tbody>
 </table>
 <h1 id="java">Java</h1>
@@ -95,6 +89,10 @@
 <li>
 <p>《阿里巴巴Android开发手册》PDF</p>
 </li>
+</ul>
+<h1 id="ios">ios</h1>
+<ul>
+<li>《IOS编程》书</li>
 </ul>
 <h1 id="跨平台技术">跨平台技术</h1>
 <ul>
