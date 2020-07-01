@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wl-go.github.io</id>
     <title>wlgo 博客</title>
-    <updated>2020-07-01T05:46:54.333Z</updated>
+    <updated>2020-07-01T07:26:48.102Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wl-go.github.io"/>
     <link rel="self" href="https://wl-go.github.io/atom.xml"/>
@@ -10,6 +10,49 @@
     <logo>https://wl-go.github.io/images/avatar.png</logo>
     <icon>https://wl-go.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, wlgo 博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Android绘制基础]]></title>
+        <id>https://wl-go.github.io/post/android-hui-zhi-ji-chu/</id>
+        <link href="https://wl-go.github.io/post/android-hui-zhi-ji-chu/">
+        </link>
+        <updated>2020-07-01T06:21:30.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="绘制基础">绘制基础</h1>
+<ul>
+<li>笔 (Paint)——画笔(<strong>控制画笔大小、粗细、颜色、透明度、字体样式等</strong>)</li>
+<li>纸 (Canvas)——画布(<strong>画成什么样子，圆、矩形、文字等</strong>)</li>
+</ul>
+<h2 id="画笔-paint">画笔 Paint</h2>
+<h3 id="paint文档"><a href="https://developer.android.google.cn/reference/android/graphics/Paint?hl=en">Paint文档</a></h3>
+<h3 id="常用设置">常用设置</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">isAntiAlias</td>
+<td style="text-align:left"><strong>是否开启抗锯齿功能</strong>，在绘制棱角分明的图形是不需要开启，绘制不规则的图形如圆、字体等开启可以使图形边缘平滑</td>
+</tr>
+<tr>
+<td style="text-align:center">color</td>
+<td style="text-align:left">设置画笔颜色</td>
+</tr>
+</tbody>
+</table>
+<h2 id="画布-canvas">画布 Canvas</h2>
+<h2 id="颜色color">颜色Color</h2>
+<blockquote>
+<p>一个颜色值，由红、绿、蓝三原色组成，<strong>0xAARRGGBB</strong><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">A:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 透明度，取值范围0～255 (0x00～0xFF)，<strong>取值越小，透明度越高，图像就越透明，当0时，完全看不见</strong><br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">R:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 红色值<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">G:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 绿色值<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">B:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 蓝色值</p>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[了解SQL]]></title>
         <id>https://wl-go.github.io/post/liao-jie-sql/</id>
