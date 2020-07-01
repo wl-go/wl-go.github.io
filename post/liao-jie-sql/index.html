@@ -2,30 +2,29 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>学习计划 | wlgo 博客</title>
+<title>了解SQL | wlgo 博客</title>
 <link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1593582411054">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="学习计划 | wlgo 博客 - Atom Feed" href="https://wl-go.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="了解SQL | wlgo 博客 - Atom Feed" href="https://wl-go.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="
-🍀学无止境，这里对自己学习知识的汇总记录📝，有助于规划自己的学习路线📍，由浅入深渐进式的学习方式，层层递进的探索知识，使得学习变得好玩有趣，加油！坚持下去！就会不一样！💗⛽️☕️💪😊
+    <meta name="description" content="数据库基础
+数据库 (database)
 
-学习目标
+一个以某种有组织的方式存储数据的集合
+保存有组织的数据的容器
 
+表 (table)
 
+一种结构化的文件，可以用来存储特定类型的数据
 
-目标
-完成情况
+模式 (schema)
 
-
-
-
-..." />
-    <meta name="keywords" content="计划" />
+可以用来描述数据库中特定的表信息，也..." />
+    <meta name="keywords" content="SQL" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -95,75 +94,78 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              学习计划
+              了解SQL
             </h2>
             <div class="post-info">
               <span>
-                2020-06-23
+                2020-07-01
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://wl-go.github.io/tag/WjShFBjnE/" class="post-tag">
-                  # 计划
+                <a href="https://wl-go.github.io/tag/4MHtvWG1t/" class="post-tag">
+                  # SQL
                 </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <blockquote>
-<p>🍀学无止境，这里对自己学习知识的汇总记录📝，有助于规划自己的学习路线📍，由浅入深渐进式的学习方式，层层递进的探索知识，使得学习变得好玩有趣，加油！坚持下去！就会不一样！💗⛽️☕️💪😊</p>
+                <h1 id="数据库基础">数据库基础</h1>
+<h2 id="数据库-database">数据库 (database)</h2>
+<blockquote>
+<p>一个以某种有组织的方式<strong>存储数据的集合</strong><br>
+保存有组织的数据的容器</p>
 </blockquote>
-<h1 id="学习目标">学习目标</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">目标</th>
-<th style="text-align:left">完成情况</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">系统学习<code>单核工作法</code> ，改善学习方式</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">开发按照<code>阿里巴巴Android开发手册</code></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">自定义Android控件——<code>电压表</code></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">自定义Android控件——<code>弧形进度条</code></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>自己设计APP并开发</strong></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Java后台技术</code>的学习（为自己设计APP提供支持）</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">Android<code>第三方库</code>学习记录📝</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">学习IOS开发</td>
-<td style="text-align:left"></td>
-</tr>
-</tbody>
-</table>
+<h2 id="表-table">表 (table)</h2>
+<blockquote>
+<p>一种结构化的文件，可以用来<strong>存储特定类型的数据</strong></p>
+</blockquote>
+<h2 id="模式-schema">模式 (schema)</h2>
+<blockquote>
+<p>可以用来描述数据库中特定的表信息，也可以用来描述整个数据库（和其中表的关系）</p>
+</blockquote>
+<h2 id="列-数据类型">列、数据类型</h2>
+<blockquote>
+<p>表中的一个字段，称为列，所有表都是由一个或多个列组成</p>
+</blockquote>
+<ul>
+<li>将数据合理的分成多个列，有利于对数据进行分类、过滤</li>
+</ul>
+<blockquote>
+<p>数据类型，所允许的数据类型，每个表列都有相应的数据类型，它限制或允许给列中存储的数据</p>
+</blockquote>
+<ul>
+<li>数据类型可以帮助正确的分类数据，优化磁盘</li>
+</ul>
+<h2 id="行-row">行 (row)</h2>
+<blockquote>
+<p>表中的一条记录</p>
+</blockquote>
+<h2 id="主键-primary-key">主键 (primary key)</h2>
+<blockquote>
+<p>表中每一行都应该有一列(或几列)可以唯一标识自己。</p>
+</blockquote>
+<h2 id="什么是sql">什么是SQL</h2>
+<blockquote>
+<p>Structured Query Language 结构化查询语言，提供一种从数据库中读写 数据的简单有效的方法</p>
+</blockquote>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li><a href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87">学习目标</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80">数据库基础</a>
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93-database">数据库 (database)</a></li>
+<li><a href="#%E8%A1%A8-table">表 (table)</a></li>
+<li><a href="#%E6%A8%A1%E5%BC%8F-schema">模式 (schema)</a></li>
+<li><a href="#%E5%88%97-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">列、数据类型</a></li>
+<li><a href="#%E8%A1%8C-row">行 (row)</a></li>
+<li><a href="#%E4%B8%BB%E9%94%AE-primary-key">主键 (primary key)</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFsql">什么是SQL</a></li>
+</ul>
+</li>
 </ul>
 
               </div>
@@ -174,9 +176,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://wl-go.github.io/post/room-shu-ju-ku-cao-zuo/">
+            <a href="https://wl-go.github.io/post/xue-xi-ji-hua/">
               <h3 class="post-title">
-                Room数据库操作
+                学习计划
               </h3>
             </a>
           </div>
