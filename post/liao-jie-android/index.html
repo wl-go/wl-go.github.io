@@ -2,18 +2,25 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | wlgo 博客</title>
+<title>了解Android | wlgo 博客</title>
 <link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1593613000210">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="关于 | wlgo 博客 - Atom Feed" href="https://wl-go.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="了解Android | wlgo 博客 - Atom Feed" href="https://wl-go.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="欢迎光临！
-" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="Android 系统架构
+
+
+Linux内核层
+Android系统是基于Linux内核的，这层为Android系统各种硬件提供了驱动，如显示驱动、蓝牙、wifi驱动
+
+
+系统运行库层
+这层是C/C++库，为Android提供一些特性，如SQ..." />
+    <meta name="keywords" content="Android" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -83,30 +90,78 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              了解Android
             </h2>
             <div class="post-info">
               <span>
-                2020-06-22
+                2020-07-01
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
+              
+                <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="post-tag">
+                  # Android
+                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>欢迎光临！</p>
+                <h1 id="android-系统架构">Android 系统架构</h1>
+<ul>
+<li>
+<p><strong>Linux内核层</strong></p>
+<p>Android系统是基于Linux内核的，这层为Android系统各种硬件提供了驱动，如显示驱动、蓝牙、wifi驱动</p>
+</li>
+<li>
+<p><strong>系统运行库层</strong></p>
+<p>这层是C/C++库，为Android提供一些特性，如SQLite库提供了数据库的支持、openGL/ES库提供了3D绘图支持、webkit库提供了浏览器内核的支持。</p>
+<p>注意：在这一层还有一个Android运行时库，运行时库中包含了Dalvik虚拟机（5.0之后改为ART运行环境），它使得Android应用都能够运行在独立的进程中，并且拥有一个自己的虚拟机实例，相比Java 虚拟机，Dalvik和ART都是专门为移动端定制，对手机内存、CPU性能优化处理——Android运行时</p>
+</li>
+<li>
+<p><strong>应用框架层</strong></p>
+<p>提供构建应用程序时用到的各种API，还为硬件访问提供了通用的抽象层，并管理用户界面和应用资源</p>
+</li>
+<li>
+<p><strong>应用层</strong></p>
+<p>最上层应用，包括我们自己开发的应用</p>
+</li>
+</ul>
+<h1 id="备注">备注</h1>
+<ul>
+<li>
+<p>每个Android应用都运行在一个单独的进程中，并将所有的内存和进程管理的责任都交给了ART，ART会根据需要暂停和终止进程，从而实现对资源的管理</p>
+</li>
+<li>
+<p>ART 位于处理底层硬件交互的Linux内核之上，而对所有底层服务、特性和硬件访问都通过一组API来提供</p>
+</li>
+<li>
+<p>ART 执行的是Dalvik可执行文件（.dex）,是一种进行了内存优化以实现最小占用的格式</p>
+</li>
+</ul>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li><a href="#android-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84">Android 系统架构</a></li>
+<li><a href="#%E5%A4%87%E6%B3%A8">备注</a></li>
+</ul>
+
               </div>
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://wl-go.github.io/post/kotlin-jian-jie/">
+              <h3 class="post-title">
+                Kotlin简介
+              </h3>
+            </a>
+          </div>
         
 
         

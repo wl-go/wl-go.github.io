@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wl-go.github.io</id>
     <title>wlgo 博客</title>
-    <updated>2020-07-01T07:26:48.102Z</updated>
+    <updated>2020-07-01T14:16:44.239Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wl-go.github.io"/>
     <link rel="self" href="https://wl-go.github.io/atom.xml"/>
@@ -10,6 +10,93 @@
     <logo>https://wl-go.github.io/images/avatar.png</logo>
     <icon>https://wl-go.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, wlgo 博客</rights>
+    <entry>
+        <title type="html"><![CDATA[了解Android]]></title>
+        <id>https://wl-go.github.io/post/liao-jie-android/</id>
+        <link href="https://wl-go.github.io/post/liao-jie-android/">
+        </link>
+        <updated>2020-07-01T13:33:55.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="android-系统架构">Android 系统架构</h1>
+<ul>
+<li>
+<p><strong>Linux内核层</strong></p>
+<p>Android系统是基于Linux内核的，这层为Android系统各种硬件提供了驱动，如显示驱动、蓝牙、wifi驱动</p>
+</li>
+<li>
+<p><strong>系统运行库层</strong></p>
+<p>这层是C/C++库，为Android提供一些特性，如SQLite库提供了数据库的支持、openGL/ES库提供了3D绘图支持、webkit库提供了浏览器内核的支持。</p>
+<p>注意：在这一层还有一个Android运行时库，运行时库中包含了Dalvik虚拟机（5.0之后改为ART运行环境），它使得Android应用都能够运行在独立的进程中，并且拥有一个自己的虚拟机实例，相比Java 虚拟机，Dalvik和ART都是专门为移动端定制，对手机内存、CPU性能优化处理——Android运行时</p>
+</li>
+<li>
+<p><strong>应用框架层</strong></p>
+<p>提供构建应用程序时用到的各种API，还为硬件访问提供了通用的抽象层，并管理用户界面和应用资源</p>
+</li>
+<li>
+<p><strong>应用层</strong></p>
+<p>最上层应用，包括我们自己开发的应用</p>
+</li>
+</ul>
+<h1 id="备注">备注</h1>
+<ul>
+<li>
+<p>每个Android应用都运行在一个单独的进程中，并将所有的内存和进程管理的责任都交给了ART，ART会根据需要暂停和终止进程，从而实现对资源的管理</p>
+</li>
+<li>
+<p>ART 位于处理底层硬件交互的Linux内核之上，而对所有底层服务、特性和硬件访问都通过一组API来提供</p>
+</li>
+<li>
+<p>ART 执行的是Dalvik可执行文件（.dex）,是一种进行了内存优化以实现最小占用的格式</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kotlin简介]]></title>
+        <id>https://wl-go.github.io/post/kotlin-jian-jie/</id>
+        <link href="https://wl-go.github.io/post/kotlin-jian-jie/">
+        </link>
+        <updated>2020-07-01T13:13:25.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="kotlin-能干做什么">Kotlin 能干做什么</h1>
+<ul>
+<li>
+<p>Android</p>
+</li>
+<li>
+<p>服务端：代替Java，更少的代码编写同样健壮的服务</p>
+</li>
+<li>
+<p>浏览器端: 代替TS编写类型安全的前端代码</p>
+</li>
+<li>
+<p>native</p>
+</li>
+</ul>
+<h1 id="kotlin-优势">Kotlin 优势</h1>
+<ul>
+<li>
+<p>能在多平台允许</p>
+</li>
+<li>
+<p>能使用静态类型编写更安全的代码</p>
+</li>
+<li>
+<p>支持函数式和面向对象两种编程范式</p>
+</li>
+<li>
+<p>兼容Java(Java与kotlin可以相互调用)</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第一个Java应用]]></title>
+        <id>https://wl-go.github.io/post/di-yi-ge-java-ying-yong/</id>
+        <link href="https://wl-go.github.io/post/di-yi-ge-java-ying-yong/">
+        </link>
+        <updated>2020-07-01T12:48:25.000Z</updated>
+        <content type="html"><![CDATA[<p>第一个Java应用</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Android绘制基础]]></title>
         <id>https://wl-go.github.io/post/android-hui-zhi-ji-chu/</id>
