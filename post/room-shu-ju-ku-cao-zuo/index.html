@@ -1,109 +1,98 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>Room数据库操作 | wlgo 博客</title>
-<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1602987792440">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="记录学习中的点点滴滴！">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1602988206595">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Room数据库操作 | wlgo 博客 - Atom Feed" href="https://wl-go.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
-    <meta name="description" content="Room
 
-Room持久性库在 SQLite 的基础上提供了一个抽象层，让用户能够在充分利用 SQLite 的强大功能的同时，获享更强健的数据库访问机制。
-处理大量结构化数据的应用可极大地受益于在本地保留这些数据。最常见的用例是 缓存相关数..." />
-    <meta name="keywords" content="Android" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://wl-go.github.io">
-  <img class="avatar" src="https://wl-go.github.io/images/avatar.png?v=1602987792440" alt="">
-  </a>
-  <h1 class="site-title">
-    wlgo 博客
-  </h1>
-  <p class="site-description">
-    记录学习中的点点滴滴！
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://wl-go.github.io">wlgo 博客</a></h3>
   </div>
-  <div class="social-container">
-    
-      
-        <a href="https://github.com/wl-go" target="_blank">
-          <i class="ri-github-line"></i>
-        </a>
-      
-    
-      
-    
-      
-        <a href="https://weibo.com/u/7347507009" target="_blank">
-          <i class="ri-weibo-line"></i>
-        </a>
-      
-    
-      
-    
-      
-    
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
   </div>
-</div>
+</nav>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              Room数据库操作
-            </h2>
-            <div class="post-info">
-              <span>
-                2020-06-22
-              </span>
-              <span>
-                16 min read
-              </span>
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>Room数据库操作</h1>
+            <p class="article-meta">
+              2020-06-22
               
-                <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="post-tag">
-                  # Android
+                <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="badge ">
+                  Android
                 </a>
               
-            </div>
+            </p>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h1 id="room">Room</h1>
+            <div class="post-content">
+              <h1 id="room">Room</h1>
 <blockquote>
 <p>Room持久性库在 SQLite 的基础上提供了一个抽象层，让用户能够在充分利用 SQLite 的强大功能的同时，获享更强健的数据库访问机制。</p>
 <p>处理大量结构化数据的应用可极大地受益于在本地保留这些数据。最常见的用例是 <strong>缓存相关数据</strong> 。这样，当设备无法访问网络时，用户仍可在离线状态下浏览相应内容。设备之后重新连接到网络后，用户发起的所有内容更改都会同步到服务器。</p>
@@ -579,134 +568,138 @@ Room 还会验证查询的返回值，这样的话，当返回的对象中的字
 </code></pre>
 <p><strong>您还可以将 @TypeConverters 限制为不同的范围，包括个别实体、DAO 和 DAO 方法。</strong></p>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#room">Room</a>
-<ul>
-<li><a href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96">添加依赖</a></li>
-<li><a href="#room-%E5%8C%85%E5%90%AB-3-%E4%B8%AA%E4%B8%BB%E8%A6%81%E7%BB%84%E4%BB%B6">Room 包含 3 个主要组件：</a>
-<ul>
-<li><a href="#database">Database</a></li>
-<li><a href="#entity">Entity</a></li>
-<li><a href="#dao">DAO</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BD%BF%E7%94%A8room%E5%AE%9E%E4%BD%93%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AEentity">使用Room实体定义数据（@Entity）</a>
-<ul>
-<li><a href="#entity%E4%B8%AD%E5%90%84%E6%B3%A8%E8%A7%A3%E7%90%86%E8%A7%A3%E5%8F%8A%E4%BD%BF%E7%94%A8">Entity中各注解理解及使用</a></li>
-</ul>
-</li>
-<li><a href="#%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB">定义对象之间的关系</a>
-<ul>
-<li><a href="#%E5%AE%9A%E4%B9%89%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BB">定义一对多关系</a></li>
-<li><a href="#%E5%88%9B%E5%BB%BA%E5%B5%8C%E5%A5%97%E5%AF%B9%E8%B1%A1">创建嵌套对象</a></li>
-<li><a href="#%E5%AE%9A%E4%B9%89%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%85%B3%E7%B3%BB">定义多对多关系</a></li>
-</ul>
-</li>
-<li><a href="#%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE">创建视图</a>
-<ul>
-<li><a href="#%E5%88%9B%E5%BB%BA%E8%A7%86%E5%9B%BE-databaseview">创建视图 @DatabaseView</a></li>
-<li><a href="#%E5%B0%86%E8%A7%86%E5%9B%BE%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E8%81%94">将视图与数据库相关联</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E6%9F%A5%E8%AF%A2">使用视图查询</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BD%BF%E7%94%A8-room-dao-%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE">使用 Room DAO 访问数据</a>
-<ul>
-<li><a href="#insert">Insert</a></li>
-<li><a href="#update">Update</a></li>
-<li><a href="#delete">Delete</a></li>
-<li><a href="#query-query">Query （@Query）</a>
-<ul>
-<li><a href="#%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2">简单查询</a></li>
-<li><a href="#%E5%B0%86%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E7%BB%99%E6%9F%A5%E8%AF%A2">将参数传递给查询</a></li>
-<li><a href="#%E8%BF%94%E5%9B%9E%E5%88%97%E7%9A%84%E5%AD%90%E9%9B%86">返回列的子集</a></li>
-<li><a href="#%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%E7%9A%84%E9%9B%86%E5%90%88">传递参数的集合</a></li>
-<li><a href="#%E5%8F%AF%E8%A7%82%E5%AF%9F%E6%9F%A5%E8%AF%A2">可观察查询</a></li>
-<li><a href="#%E6%9F%A5%E8%AF%A2%E5%A4%9A%E4%B8%AA%E8%A1%A8%E6%A0%BC">查询多个表格</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8-kotlin-%E5%8D%8F%E7%A8%8B%E7%BC%96%E5%86%99%E5%BC%82%E6%AD%A5%E6%96%B9%E6%B3%95">使用 Kotlin 协程编写异步方法</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E5%A1%AB%E5%85%85%E6%95%B0%E6%8D%AE%E5%BA%93">填充数据库</a></li>
-<li><a href="#%E8%BF%81%E7%A7%BB-room-%E6%95%B0%E6%8D%AE%E5%BA%93">迁移 Room 数据库</a>
-<ul>
-<li><a href="#%E5%A6%A5%E5%96%84%E5%A4%84%E7%90%86%E7%BC%BA%E5%A4%B1%E7%9A%84%E8%BF%81%E7%A7%BB%E8%B7%AF%E5%BE%84">妥善处理缺失的迁移路径</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BD%BF%E7%94%A8-room-%E5%BC%95%E7%94%A8%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE">使用 Room 引用复杂数据</a></li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
           </article>
         </div>
-
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://wl-go.github.io/post/shou-ji-ce/">
+                <h3 class="post-title">
+                  收集册
+                </h3>
+              </a>
+            </div>
+          
+        </div>
         
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://wl-go.github.io/post/shou-ji-ce/">
-              <h3 class="post-title">
-                收集册
-              </h3>
-            </a>
-          </div>
-        
+      </div>
 
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://wl-go.github.io/images/avatar.png?v=1602988206595" class="no-responsive avatar">
+    <div class="text-muted">记录学习中的点点滴滴！</div>
+    <div class="social-container">
+      
         
-
-        <div class="site-footer">
-  
-  <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/android-hui-zhi-ji-chu/">Android绘制基础</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/liao-jie-sql/">了解SQL</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/xue-xi-ji-hua/">学习计划</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/room-shu-ju-ku-cao-zuo/">Room数据库操作</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/shou-ji-ce/">收集册</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/about/">关于</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://wl-go.github.io/tag/vcU0mG6jI/" class="badge warning">
+          自定义View
+        </a>
+      
+        <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="badge secondary">
+          Android
+        </a>
+      
+        <a href="https://wl-go.github.io/tag/4MHtvWG1t/" class="badge success">
+          SQL
+        </a>
+      
+        <a href="https://wl-go.github.io/tag/WjShFBjnE/" class="badge ">
+          计划
+        </a>
+      
+        <a href="https://wl-go.github.io/tag/9Y_dgHUyj/" class="badge success">
+          收集册
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+     | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
 </div>
 
-      </div>
+
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+<script type="application/javascript">
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+AOS.init();
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+hljs.initHighlightingOnLoad()
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
+</script>
 
-    </script>
+
+
+
   </body>
 </html>
