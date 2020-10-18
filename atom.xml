@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wl-go.github.io</id>
     <title>wlgo 博客</title>
-    <updated>2020-10-18T03:53:40.198Z</updated>
+    <updated>2020-10-18T04:00:17.745Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wl-go.github.io"/>
     <link rel="self" href="https://wl-go.github.io/atom.xml"/>
@@ -11,147 +11,12 @@
     <icon>https://wl-go.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, wlgo 博客</rights>
     <entry>
-        <title type="html"><![CDATA[Android绘制基础]]></title>
-        <id>https://wl-go.github.io/post/android-hui-zhi-ji-chu/</id>
-        <link href="https://wl-go.github.io/post/android-hui-zhi-ji-chu/">
+        <title type="html"><![CDATA[Android 三方库学习]]></title>
+        <id>https://wl-go.github.io/post/android-san-fang-ku-xue-xi/</id>
+        <link href="https://wl-go.github.io/post/android-san-fang-ku-xue-xi/">
         </link>
-        <updated>2020-07-01T06:21:30.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="绘制基础">绘制基础</h1>
-<ul>
-<li>笔 (Paint)——画笔(<strong>控制画笔大小、粗细、颜色、透明度、字体样式等</strong>)</li>
-<li>纸 (Canvas)——画布(<strong>画成什么样子，圆、矩形、文字等</strong>)</li>
-</ul>
-<h2 id="画笔-paint">画笔 Paint</h2>
-<h3 id="paint文档"><a href="https://developer.android.google.cn/reference/android/graphics/Paint?hl=en">Paint文档</a></h3>
-<h3 id="常用设置">常用设置</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">isAntiAlias</td>
-<td style="text-align:left"><strong>是否开启抗锯齿功能</strong>，在绘制棱角分明的图形是不需要开启，绘制不规则的图形如圆、字体等开启可以使图形边缘平滑</td>
-</tr>
-<tr>
-<td style="text-align:center">color</td>
-<td style="text-align:left">设置画笔颜色</td>
-</tr>
-</tbody>
-</table>
-<h2 id="画布-canvas">画布 Canvas</h2>
-<h2 id="颜色color">颜色Color</h2>
-<blockquote>
-<p>一个颜色值，由红、绿、蓝三原色组成，<strong>0xAARRGGBB</strong><br>
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">A:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 透明度，取值范围0～255 (0x00～0xFF)，<strong>取值越小，透明度越高，图像就越透明，当0时，完全看不见</strong><br>
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">R:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 红色值<br>
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">G:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 绿色值<br>
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">B:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 蓝色值</p>
-</blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[了解SQL]]></title>
-        <id>https://wl-go.github.io/post/liao-jie-sql/</id>
-        <link href="https://wl-go.github.io/post/liao-jie-sql/">
-        </link>
-        <updated>2020-07-01T05:06:06.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="数据库基础">数据库基础</h1>
-<h2 id="数据库-database">数据库 (database)</h2>
-<blockquote>
-<p>一个以某种有组织的方式<strong>存储数据的集合</strong><br>
-保存有组织的数据的容器</p>
-</blockquote>
-<h2 id="表-table">表 (table)</h2>
-<blockquote>
-<p>一种结构化的文件，可以用来<strong>存储特定类型的数据</strong></p>
-</blockquote>
-<h2 id="模式-schema">模式 (schema)</h2>
-<blockquote>
-<p>可以用来描述数据库中特定的表信息，也可以用来描述整个数据库（和其中表的关系）</p>
-</blockquote>
-<h2 id="列-数据类型">列、数据类型</h2>
-<blockquote>
-<p>表中的一个字段，称为列，所有表都是由一个或多个列组成</p>
-</blockquote>
-<ul>
-<li>将数据合理的分成多个列，有利于对数据进行分类、过滤</li>
-</ul>
-<blockquote>
-<p>数据类型，所允许的数据类型，每个表列都有相应的数据类型，它限制或允许给列中存储的数据</p>
-</blockquote>
-<ul>
-<li>数据类型可以帮助正确的分类数据，优化磁盘</li>
-</ul>
-<h2 id="行-row">行 (row)</h2>
-<blockquote>
-<p>表中的一条记录</p>
-</blockquote>
-<h2 id="主键-primary-key">主键 (primary key)</h2>
-<blockquote>
-<p>表中每一行都应该有一列(或几列)可以唯一标识自己。</p>
-</blockquote>
-<h2 id="什么是sql">什么是SQL</h2>
-<blockquote>
-<p>Structured Query Language 结构化查询语言，提供一种从数据库中读写 数据的简单有效的方法</p>
-</blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[学习计划]]></title>
-        <id>https://wl-go.github.io/post/xue-xi-ji-hua/</id>
-        <link href="https://wl-go.github.io/post/xue-xi-ji-hua/">
-        </link>
-        <updated>2020-06-23T04:11:29.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>🍀学无止境，这里对自己学习知识的汇总记录📝，有助于规划自己的学习路线📍，由浅入深渐进式的学习方式，层层递进的探索知识，使得学习变得好玩有趣，加油！坚持下去！就会不一样！💗⛽️☕️💪😊</p>
-</blockquote>
-<h1 id="学习目标">学习目标</h1>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">目标</th>
-<th style="text-align:left">完成情况</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">系统学习<code>单核工作法</code> ，改善学习方式</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">开发按照<code>阿里巴巴Android开发手册</code></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">自定义Android控件——<code>电压表</code></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">自定义Android控件——<code>弧形进度条</code></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>自己设计APP并开发</strong></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>Java后台技术</code>的学习（为自己设计APP提供支持）</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">Android<code>第三方库</code>学习记录📝</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">学习IOS开发</td>
-<td style="text-align:left"></td>
-</tr>
-</tbody>
-</table>
+        <updated>2020-06-23T06:12:41.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="动态权限">动态权限</h1>
 ]]></content>
     </entry>
     <entry>
