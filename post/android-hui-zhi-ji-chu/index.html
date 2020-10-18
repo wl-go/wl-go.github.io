@@ -1,102 +1,109 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
+    
+<meta charset="utf-8" >
 
 <title>Android绘制基础 | wlgo 博客</title>
 <meta name="description" content="记录学习中的点点滴滴！">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1602988206595">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1602988389807">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
 
 
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://wl-go.github.io">wlgo 博客</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        
-          <li>
-            
-              <a href="/" class="menu">
-                首页
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/archives" class="menu">
-                归档
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/post/about" class="menu">
-                关于
-              </a>
-            
-          </li>
-        
-      </ul>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://wl-go.github.io">
+        <img class="avatar" src="https://wl-go.github.io/images/avatar.png?v=1602988389807" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://wl-go.github.io">
+        <h1 class="site-title">wlgo 博客</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
     </div>
   </div>
-</nav>
+</div>
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>Android绘制基础</h1>
-            <p class="article-meta">
-              2020-07-01
-              
-                <a href="https://wl-go.github.io/tag/vcU0mG6jI/" class="badge secondary">
-                  自定义View
-                </a>
-              
-                <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="badge warning">
-                  Android
-                </a>
-              
-            </p>
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">Android绘制基础</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-07-01</span>
             
-            <div class="post-content">
-              <h1 id="绘制基础">绘制基础</h1>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://wl-go.github.io/tag/vcU0mG6jI/">
+                    自定义View
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://wl-go.github.io/tag/pkTceeoKE/">
+                    Android
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="绘制基础">绘制基础</h1>
 <ul>
 <li>笔 (Paint)——画笔(<strong>控制画笔大小、粗细、颜色、透明度、字体样式等</strong>)</li>
 <li>纸 (Canvas)——画布(<strong>画成什么样子，圆、矩形、文字等</strong>)</li>
@@ -132,133 +139,52 @@
 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">B:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span> 蓝色值</p>
 </blockquote>
 
-            </div>
-          </article>
+          </div>
         </div>
-        <div class="paper" data-aos="fade-in">
-          
-            <div class="next-post">
-              <div class="next">
-                下一篇
-              </div>
-              <a href="https://wl-go.github.io/post/liao-jie-sql/">
-                <h3 class="post-title">
-                  了解SQL
-                </h3>
-              </a>
-            </div>
-          
-        </div>
+
         
+          <div class="next-post">
+            <a class="purple-link" href="https://wl-go.github.io/post/liao-jie-sql/">
+              <h3 class="post-title">
+                下一篇：了解SQL
+              </h3>
+            </a>
+          </div>
+          
       </div>
 
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://wl-go.github.io/images/avatar.png?v=1602988206595" class="no-responsive avatar">
-    <div class="text-muted">记录学习中的点点滴滴！</div>
-    <div class="social-container">
       
-        
+
+      <div class="site-footer">
+  <div class="slogan">记录学习中的点点滴滴！</div>
+  <div class="social-container">
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-        
+    
       
-    </div>
+    
   </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
-    </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://wl-go.github.io/post/android-hui-zhi-ji-chu/">Android绘制基础</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://wl-go.github.io/post/liao-jie-sql/">了解SQL</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://wl-go.github.io/post/xue-xi-ji-hua/">学习计划</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://wl-go.github.io/post/room-shu-ju-ku-cao-zuo/">Room数据库操作</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://wl-go.github.io/post/shou-ji-ce/">收集册</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://wl-go.github.io/post/about/">关于</a>
-            </li>
-          
-        
-      </ul>
-    </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://wl-go.github.io/tag/vcU0mG6jI/" class="badge secondary">
-          自定义View
-        </a>
-      
-        <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="badge secondary">
-          Android
-        </a>
-      
-        <a href="https://wl-go.github.io/tag/4MHtvWG1t/" class="badge warning">
-          SQL
-        </a>
-      
-        <a href="https://wl-go.github.io/tag/WjShFBjnE/" class="badge warning">
-          计划
-        </a>
-      
-        <a href="https://wl-go.github.io/tag/9Y_dgHUyj/" class="badge warning">
-          收集册
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-     | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
-  </div>
+   | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
 
     </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script type="application/javascript">
-
-AOS.init();
+    <script type="application/javascript">
 
 hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 
