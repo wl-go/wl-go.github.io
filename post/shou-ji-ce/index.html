@@ -1,110 +1,98 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>收集册 | wlgo 博客</title>
-<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1602993063047">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="记录学习中的点点滴滴！">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1602993193836">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="收集册 | wlgo 博客 - Atom Feed" href="https://wl-go.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
-    <meta name="description" content="
-对平时开发中遇到的一下小技巧、小知识点的汇总记录，方便快速查找🎈🔨⚙👀
 
-Android添加忽略文件(SVN)
-可以在.idea/workspace.xml中&lt;component name=&quot;ChangeListMa..." />
-    <meta name="keywords" content="收集册" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://wl-go.github.io">
-  <img class="avatar" src="https://wl-go.github.io/images/avatar.png?v=1602993063047" alt="">
-  </a>
-  <h1 class="site-title">
-    wlgo 博客
-  </h1>
-  <p class="site-description">
-    记录学习中的点点滴滴！
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://wl-go.github.io">wlgo 博客</a></h3>
   </div>
-  <div class="social-container">
-    
-      
-        <a href="https://github.com/wl-go" target="_blank">
-          <i class="ri-github-line"></i>
-        </a>
-      
-    
-      
-    
-      
-        <a href="https://weibo.com/u/7347507009" target="_blank">
-          <i class="ri-weibo-line"></i>
-        </a>
-      
-    
-      
-    
-      
-    
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
   </div>
-</div>
+</nav>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              收集册
-            </h2>
-            <div class="post-info">
-              <span>
-                2020-06-22
-              </span>
-              <span>
-                2 min read
-              </span>
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>收集册</h1>
+            <p class="article-meta">
+              2020-06-22
               
-                <a href="https://wl-go.github.io/tag/9Y_dgHUyj/" class="post-tag">
-                  # 收集册
+                <a href="https://wl-go.github.io/tag/9Y_dgHUyj/" class="badge secondary">
+                  收集册
                 </a>
               
-            </div>
+            </p>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <blockquote>
+            <div class="post-content">
+              <blockquote>
 <p>对平时开发中遇到的一下小技巧、小知识点的汇总记录，方便快速查找🎈🔨⚙👀</p>
 </blockquote>
 <h2 id="android添加忽略文件svn">Android添加忽略文件(SVN)</h2>
@@ -177,82 +165,127 @@ brew install &lt;version&gt;
 &lt;version&gt; 可以选择adoptopenjdk-openjdk8、adoptopenjdk-openjdk9、adoptopenjdk-openjdk10
 </code></pre>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#android%E6%B7%BB%E5%8A%A0%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6svn">Android添加忽略文件(SVN)</a></li>
-<li><a href="#%E8%8E%B7%E5%8F%96android-key%E7%9A%84sha1">获取Android Key的sha1</a></li>
-<li><a href="#%E8%8E%B7%E5%8F%96https%E8%AF%81%E4%B9%A6%E5%AD%97%E7%AC%A6%E4%B8%B2">获取https证书字符串</a></li>
-<li><a href="#linux-%E6%9F%A5%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8-%E6%9D%80%E8%BF%9B%E7%A8%8B">Linux 查端口占用、杀进程</a></li>
-<li><a href="#%E5%8F%8D%E7%BC%96%E8%AF%91apk">反编译APK</a></li>
-<li><a href="#curl-%E4%BD%BF%E7%94%A8get-post">Curl 使用(GET、POST)</a></li>
-<li><a href="#%E9%98%B2%E6%AD%A2edittext%E5%BC%B9%E5%87%BA%E9%94%AE%E7%9B%98%E5%90%8E%E9%A1%B6%E8%B5%B7%E5%B8%83%E5%B1%80">防止EditText弹出键盘后顶起布局</a></li>
-<li><a href="#android-%E6%B5%8F%E8%A7%88%E5%99%A8sqlite%E6%9F%A5%E7%9C%8B%E5%B7%A5%E5%85%B7">Android 浏览器SQLite查看工具</a></li>
-<li><a href="#mac-%E5%AE%89%E8%A3%85openjdk">Mac 安装OpenJDK</a></li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
           </article>
         </div>
-
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
         
+      </div>
 
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://wl-go.github.io/images/avatar.png?v=1602993193836" class="no-responsive avatar">
+    <div class="text-muted">记录学习中的点点滴滴！</div>
+    <div class="social-container">
+      
         
-
-        <div class="site-footer">
-  
-  <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/android-hui-zhi-ji-chu/">Android绘制基础</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/liao-jie-sql/">了解SQL</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/xue-xi-ji-hua/">学习计划</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/room-shu-ju-ku-cao-zuo/">Room数据库操作</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/shou-ji-ce/">收集册</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wl-go.github.io/post/about/">关于</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://wl-go.github.io/tag/vcU0mG6jI/" class="badge success">
+          自定义View
+        </a>
+      
+        <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="badge ">
+          Android
+        </a>
+      
+        <a href="https://wl-go.github.io/tag/4MHtvWG1t/" class="badge ">
+          SQL
+        </a>
+      
+        <a href="https://wl-go.github.io/tag/WjShFBjnE/" class="badge success">
+          计划
+        </a>
+      
+        <a href="https://wl-go.github.io/tag/9Y_dgHUyj/" class="badge success">
+          收集册
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+     | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
 </div>
 
-      </div>
+
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+<script type="application/javascript">
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+AOS.init();
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+hljs.initHighlightingOnLoad()
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
+</script>
 
-    </script>
+
+
+
   </body>
 </html>
