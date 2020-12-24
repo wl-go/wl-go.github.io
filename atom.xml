@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wl-go.github.io</id>
     <title>wlgo 博客</title>
-    <updated>2020-10-18T04:03:50.105Z</updated>
+    <updated>2020-12-24T08:27:13.098Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wl-go.github.io"/>
     <link rel="self" href="https://wl-go.github.io/atom.xml"/>
@@ -17,6 +17,8 @@
         </link>
         <updated>2020-06-23T06:12:41.000Z</updated>
         <content type="html"><![CDATA[<h1 id="动态权限">动态权限</h1>
+<h1 id="mpandroidchart">MPAndroidChart</h1>
+<p><a href="https://weeklycoding.com/mpandroidchart/">文档</a></p>
 ]]></content>
     </entry>
     <entry>
