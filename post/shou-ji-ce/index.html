@@ -1,102 +1,104 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>收集册 | wlgo 博客</title>
-<meta name="description" content="记录学习中的点点滴滴！">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1608798759548">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1608798852737">
 <link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
 
 
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
 
+    <meta name="description" content="
+对平时开发中遇到的一下小技巧、小知识点的汇总记录，方便快速查找🎈🔨⚙👀
+
+Android添加忽略文件(SVN)
+可以在.idea/workspace.xml中&lt;component name=&quot;ChangeListMa..." />
+    <meta name="keywords" content="收集册" />
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="https://wl-go.github.io">
-        <img class="avatar" src="https://wl-go.github.io/images/avatar.png?v=1608798759548" alt="" width="32px" height="32px">
-      </a>
-      <a href="https://wl-go.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wl-go.github.io">
+        <img src="https://wl-go.github.io/images/avatar.png?v=1608798852737" class="site-logo">
         <h1 class="site-title">wlgo 博客</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="menu purple-link">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      记录学习中的点点滴滴！
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          
-          <h2 class="post-title">收集册</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2020-06-22</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">收集册</h2>
+            <div class="post-date">2020-06-22</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="https://wl-go.github.io/tag/9Y_dgHUyj/">
-                    收集册
-                    
-                  </a>
-                
-              </span>
-            
-          </div>
-          <div class="post-content">
-            <blockquote>
+            <div class="post-content" v-pre>
+              <blockquote>
 <p>对平时开发中遇到的一下小技巧、小知识点的汇总记录，方便快速查找🎈🔨⚙👀</p>
 </blockquote>
 <h2 id="android添加忽略文件svn">Android添加忽略文件(SVN)</h2>
@@ -169,37 +171,30 @@ brew install &lt;version&gt;
 &lt;version&gt; 可以选择adoptopenjdk-openjdk8、adoptopenjdk-openjdk9、adoptopenjdk-openjdk10
 </code></pre>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://wl-go.github.io/tag/9Y_dgHUyj/" class="tag">
+                    收集册
+                  </a>
+                
+              </div>
+            
+            
+
+            
+
           </div>
+
         </div>
-
-        
       </div>
-
-      
-
-      <div class="site-footer">
-  <div class="slogan">记录学习中的点点滴滴！</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-   | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
 
-hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
 
 var app = new Vue({
   el: '#app',
@@ -209,6 +204,8 @@ var app = new Vue({
 })
 
 </script>
+
+
 
 
 
