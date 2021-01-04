@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Hilt 依赖注入框架 | wlgo 博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1609744348410">
+<link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+依赖注入：DI（Dependency Injection） ，Hilt则是Android中的依赖注入框架
+
+官方文档
+具体用法
+添加依赖
+// 1. 项目build.gradle
+dependencies {
+    classpath ..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wl-go.github.io">
+        <img src="https://wl-go.github.io/images/avatar.png?v=1609744348410" class="site-logo">
+        <h1 class="site-title">wlgo 博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      记录学习中的点点滴滴！
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Hilt 依赖注入框架</h2>
+            <div class="post-date">2020-12-31</div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>依赖注入：<code>DI（Dependency Injection）</code> ，<code>Hilt</code>则是Android中的依赖注入框架</p>
+</blockquote>
+<p><a href="https://developer.android.google.cn/training/dependency-injection/hilt-android">官方文档</a></p>
+<h1 id="具体用法">具体用法</h1>
+<h2 id="添加依赖">添加依赖</h2>
+<pre><code class="language-gradle">// 1. 项目build.gradle
+dependencies {
+    classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
+}
+
+// 2. app/build.gradle
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+dependencies {
+    implementation &quot;com.google.dagger:hilt-android:2.28-alpha&quot;
+    kapt &quot;com.google.dagger:hilt-android-compiler:2.28-alpha&quot;
+}
+</code></pre>
+<h2 id="基本用法">基本用法</h2>
+<h3 id="必须hiltandroidapp">必须（@HiltAndroidApp）</h3>
+<p>自定义Application类，使用<code>@HiltAndroidApp</code> 注解该类，否则Hilt无法正常使用</p>
+<blockquote>
+<p><code>@HiltAndroidApp</code> 会触发 Hilt 的代码生成操作，生成的代码包括应用的一个基类，该基类充当应用级依赖项容器，生成的这一 Hilt 组件会附加到 <code>Application</code> 对象的生命周期，并为其提供依赖项，此外，它也是应用的父组件，这意味着，<code>其他组件可以访问它提供的依赖项</code>。</p>
+</blockquote>
+<pre><code class="language-kotlin">@HiltAndroidApp
+class MyApp : Application() {
+}
+</code></pre>
+<h3 id="6个注入入口点">6个注入入口点</h3>
+<ul>
+<li>Application</li>
+<li>Activity</li>
+<li>Fragment</li>
+<li>View</li>
+<li>Service</li>
+<li>BroadcastReceiver</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ol>
+<li>只有<code>Application入口点</code>使用<code>@HiltAndroidApp</code>，其余的都是使用<code>@AndroidEntryPoint</code>注解来声明的</li>
+<li>使用 <code>@AndroidEntryPoint</code> 为某个 Android 类添加注释，则还必须为依赖于该类的 Android 类添加注释。<code>例如，如为某个 Fragment 添加注释，则还必须为使用该 Fragment 的所有 Activity 添加注释。</code></li>
+<li><code>@AndroidEntryPoint</code> 会为项目中的每个 Android 类生成一个<code>单独的 Hilt 组件</code>。这些组件可以<strong>从它们各自的父类接收依赖项</strong>，<a href="https://developer.android.google.cn/training/dependency-injection/hilt-android#component-hierarchy"><strong><code>组件层次结构</code></strong></a></li>
+</ol>
+<p><strong>比如，Activity需要依赖注入</strong></p>
+<pre><code class="language-kotlin">@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+}
+</code></pre>
+<h3 id="组件中声明依赖项inject">组件中声明依赖项（@Inject）</h3>
+<blockquote>
+<p>通过在组件中字段上添加<code>@Inject注解</code>，声明这个字段是个依赖项，需要通过依赖注入提供实例</p>
+</blockquote>
+<pre><code class="language-kotlin">@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+    // 声明依赖项
+    @Inject lateinit var a: A
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+}
+</code></pre>
+<h3 id="告知hilt如何提供依赖项">告知Hilt，如何提供依赖项</h3>
+<h4 id="1-构造函数方式inject">1. 构造函数方式（@Inject）</h4>
+<blockquote>
+<p>通过在类的构造函数上添加<code>@Inject</code>注解，如果其构造函数中有依赖项，那么对应的类也需要告知Hilt如何提供实例</p>
+</blockquote>
+<pre><code class="language-kotlin">class A @Inject constructor() {
+    fun doA() {
+        println(&quot;AAAAA&quot;)
+    }
+}
+</code></pre>
+<h4 id="2-对接口的依赖注入">2. 对接口的依赖注入</h4>
+<blockquote>
+<p>接口是不可以通过构造函数的方式实现注入的，接口根本没有构造函数，这是时候需要 <code>@Module、@InstanllIn、@Qualifier、@Binds</code> ，同一类型不同实例的注入需要定义注解（用于区分）并且添加<code>@Qualifier</code></p>
+</blockquote>
+<p><strong>实例：</strong></p>
+<ol>
+<li>定义接口</li>
+</ol>
+<pre><code class="language-kotlin">interface IAction{
+    fun doA()
+    fun doB()
+}
+</code></pre>
+<ol start="2">
+<li>定义两个实现类（需要添加<code>@Inject</code>告诉<code>hilt</code>可以通过构造函数注入）</li>
+</ol>
+<pre><code class="language-kotlin">class A @Inject constructor(): IAction{
+    override fun doA(){
+        println(&quot;A - doA&quot;)
+    }
+    override fun doB(){
+        println(&quot;A - doB&quot;)
+    }
+}
+
+class B @Inject constructor(): IAction{
+    override fun doA(){
+        println(&quot;B - doA&quot;)
+    }
+    override fun doB(){
+        println(&quot;B - doB&quot;)
+    }
+}
+</code></pre>
+<ol start="3">
+<li>使用<code>@Qualifier</code>，创建注解（区分IAction类型，实现IAction的类存在多个）</li>
+</ol>
+<pre><code class="language-kotlin">@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class BindAIAction()
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class BindBIAction()
+</code></pre>
+<ol start="4">
+<li>使用<code>@Module</code>、<code>@InstallIn</code>、<code>@Binds</code> 创建注入项模版</li>
+</ol>
+<pre><code class="language-kotlin">@Module
+@InstallIn(ActivityComponent::class)
+abstract class ActionModule {
+
+    @BindAIAction
+    @Binds
+    abstract fun bindA(a: A): IAction
+
+    @BindBIAction
+    @Binds
+    abstract fun bindB(b: B): IAction
+
+    // 这里的 @BindAIAction，@BindBIAction主要就是区分，注入时的具体实现类是哪个
+}
+</code></pre>
+<ol start="5">
+<li>注入接口类型（这里也使用了自定义的注解，为了区分具体注入哪个实现类）</li>
+</ol>
+<pre><code class="language-kotlin">class Test{
+    @BindAIAction // A
+    @Inject
+    lateinit var mA: IAction
+
+    @@BindBIAction// B
+    @Inject
+    lateinit var mB: IAction
+}
+</code></pre>
+<h4 id="3-第三方类的依赖注入">3. 第三方类的依赖注入</h4>
+<blockquote>
+<p>一般像三方库的类，比如<code>OkHttpClient</code>、<code>Retrofit</code>，需要使用<code>@Module、@InstanllIn、@Provides</code><br>
+<strong>注意：这时使用<code>@Module</code>注解的不是抽象类了，而是一个普通的class，<code>@Provides</code>注解的是普通方法，需要有返回类型，这个返回类型就是需要提供的注入的实例</strong></p>
+</blockquote>
+<p><strong>实例</strong></p>
+<pre><code class="language-kotlin">@Module
+@InstallIn(ActivityComponent::class)
+class httpModule{
+
+    @Provides
+    fun provideOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .build()
+    }
+
+    // 这里的OkHttpClient参数，就不需要定义了，因为上面已经有了
+    @Provides
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(&quot;http://127.0.0.1&quot;)
+            .client(okHttpClient)
+            .build()
+    }
+}
+</code></pre>
+<h2 id="hilt内置组件和组件作用域">Hilt内置组件和组件作用域</h2>
+<h3 id="内置组件使用installin">内置组件使用（@InstallIn）</h3>
+<blockquote>
+<p><code>@InstallIn(hilt组件)</code><br>
+比如：<code>ActivityComponent::class</code>，<code>@InstallIn(ActivityComponent::class)</code>，表示把这个模块安装到Activity组件当中，那么Activity、Activity中包含的Fragment和View也可以使用，其他地方无法使用</p>
+</blockquote>
+<h4 id="7种组件类型分别用于注入到不同的场景">7种组件类型，分别用于注入到不同的场景</h4>
+<table>
+<thead>
+<tr>
+<th>Hilt 组件</th>
+<th>注入场景</th>
+<th>作用域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ApplictionComponent</td>
+<td>Appliction</td>
+<td>@Singleton</td>
+</tr>
+<tr>
+<td>ActivityRetainedComponet</td>
+<td>ViewModel</td>
+<td>@ActivityRetainedScope</td>
+</tr>
+<tr>
+<td>ActivityComponent</td>
+<td>Activity</td>
+<td>@ActivityScope</td>
+</tr>
+<tr>
+<td>FragmentComponent</td>
+<td>Fragment</td>
+<td>@FragmentScope</td>
+</tr>
+<tr>
+<td>ViewComponent</td>
+<td>View</td>
+<td>@ViewScope</td>
+</tr>
+<tr>
+<td>ViewWithFragmentComponent</td>
+<td>View annotated with @WithFragmentBindings</td>
+<td>@ViewScope</td>
+</tr>
+<tr>
+<td>ServiceComponent</td>
+<td>Service</td>
+<td>@ServiceScope</td>
+</tr>
+</tbody>
+</table>
+<h3 id="组件作用域">组件作用域</h3>
+<ol>
+<li>依上面表格，如果想要在<code>全程序范围内共用某个对象的实例</code>，那么就使用<code>@Singleton</code>。如果想要在某个<code>Activity</code>，以及它内部包含的<code>Fragment</code>和<code>View</code>中共用某个对象的实例，那么就使用<code>@ActivityScoped</code></li>
+<li>没必要非得在Moudle中使用<code>作用域注解</code>，也可以直接在任何可注入类得上方使用</li>
+</ol>
+<pre><code class="language-kotlin">    @Singleton
+    class A @Inject constructor() {
+    }
+
+    // 也可以
+    @Module
+    @InstallIn(ActivityComponent::class)
+    abstract class ActionModule {
+        @Singleton // 作用域
+        @BindAIAction
+        @Binds
+        abstract fun bindA(a: A): IAction
+    }
+</code></pre>
+<h2 id="预置qualifier-系统组件的注入">预置Qualifier （系统组件的注入）</h2>
+<blockquote>
+<p>专门就是用于给我们<code>提供Context类型</code>的依赖注入实例，对于某些依赖于Context类型的类，<code>@ApplicationContext</code>，<code>@ActivityContext</code></p>
+</blockquote>
+<h3 id="context-注入实例">Context 注入——实例</h3>
+<pre><code class="language-kotlin">// ApplicationContext 全局的
+@Singleton
+class A @Inject constructor(@ApplicationContext val context: Context) {}
+
+// 某个Activity 上下文
+@ActivityScope
+class B @Inject constructor(@ActivityContext val context: Context) {}
+</code></pre>
+<h3 id="application和activity-注入实例">Application和Activity 注入——实例</h3>
+<blockquote>
+<p><strong>注意必须是Application和Activity这两个类型，即使是声明它们的子类型，编译都无法通过</strong>，<code>**Hilt自动就能识别它们**</code></p>
+</blockquote>
+<pre><code class="language-kotlin">class A @Inject constructor(val application: Application) {
+}
+
+class B @Inject constructor(val activity: Activity) {
+}
+</code></pre>
+<h2 id="转换hilt注入的appliction实例">转换Hilt注入的Appliction实例</h2>
+<pre><code class="language-kotlin">@Module
+@InstallIn(ApplicationComponent::class)
+class ApplicationModule {
+
+    @Provides
+    fun provideMyApplication(application: Application): MyApplication {
+        return application as MyApplication
+    }
+}
+</code></pre>
+<h2 id="viewmodel-依赖注入方式-viewmodelinject">ViewModel 依赖注入方式  @ViewModelInject</h2>
+<h3 id="添加依赖appbuildgradle">添加依赖app/build.gradle</h3>
+<pre><code class="language-gradle">dependencies {
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
+}
+</code></pre>
+<h3 id="使用viewmodelinject">使用@ViewModelInject</h3>
+<pre><code class="language-kotlin">class MainViewModel @ViewModelInject constructor(private val mainRepository: MainRepository) :
+    ViewModel() {
+}
+</code></pre>
+<p>使用@ViewModelInject，在MainViewModel上方就<code>不需要</code>添加组件作用域注解<code>@ActivityRetainedScoped</code>，其次，在获取ViewModel的方式还是使用<code>ViewModelProvider</code></p>
+<pre><code class="language-kotlin">private val mainViewModel: MainViewModel by lazy {
+    ViewModelProvider(this).get(MainViewModel::class.java)
+}
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wl-go.github.io/post/kotlin-zuo-yong-yu-han-shu/">
+                  <h3 class="post-title">
+                    Kotlin——作用域函数
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

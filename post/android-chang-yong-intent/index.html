@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Android常用Intent | wlgo 博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1609744348410">
+<link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="记录有关常用Intent使用
+⚠️注意：
+
+清单文件中添加需要的权限
+有些Intent使用需要动态权限申请
+使用前，记得判断是否存在可处理Intent的对象，intent.resolveActivity(packageManager) !=..." />
+    <meta name="keywords" content="Android" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wl-go.github.io">
+        <img src="https://wl-go.github.io/images/avatar.png?v=1609744348410" class="site-logo">
+        <h1 class="site-title">wlgo 博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      记录学习中的点点滴滴！
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Android常用Intent</h2>
+            <div class="post-date">2020-12-28</div>
+            
+            <div class="post-content" v-pre>
+              <p>记录有关常用<code>Intent</code>使用</p>
+<p>⚠️注意：</p>
+<ol>
+<li>清单文件中添加需要的权限</li>
+<li>有些<code>Intent</code>使用需要<code>动态权限申请</code></li>
+<li>使用前，记得判断是否存在可处理Intent的对象，<code>intent.resolveActivity(packageManager) != null</code></li>
+</ol>
+<h1 id="拨打电话">拨打电话</h1>
+<ol>
+<li>
+<p>添加权限<br>
+<code>&lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot; /&gt;</code></p>
+</li>
+<li>
+<p>Action</p>
+<ul>
+<li><code>Intent.ACTION_DIAL</code> - 打开拨号器或电话应用</li>
+<li><code>Intent.ACTION_CALL</code> - 拨打电话（<strong>需要 CALL_PHONE 权限</strong>）<color style='color:red'>注意：直接把电话打出去了</color></li>
+</ul>
+</li>
+<li>
+<p>data数据URI</p>
+<ul>
+<li><code>tel:</code>电话号码</li>
+<li><code>voicemail:</code>电话号码</li>
+</ul>
+</li>
+<li>
+<p>示例代码</p>
+</li>
+</ol>
+<p><strong>4.1 直接拨号，需要动态权限</strong></p>
+<pre><code class="language-kotlin">    // 直接拨号，需要动态权限
+    private fun callPhone(){
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CALL_PHONE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this, arrayOf(Manifest.permission.CALL_PHONE), 101
+            )
+        } else {
+            val callPhoneIntent = Intent(Intent.ACTION_CALL).apply {
+                data = Uri.parse(&quot;tel:11111111111&quot;)
+            }
+            // 判断是否存在能处理此Intent的目标
+            if (callPhoneIntent.resolveActivity(packageManager) != null) {
+                startActivity(callPhoneIntent)
+            } else {
+                Toast.makeText(this, &quot;抱歉，此设备找不到拨号应用&quot;, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+</code></pre>
+<p><strong>4.2 去系统拨号界面</strong></p>
+<pre><code class="language-kotlin">private fun goCallPhone(){
+        val callPhoneIntent = Intent(Intent.ACTION_DIAL).apply {
+            data = Uri.parse(&quot;tel:11111111111&quot;)
+        }
+        // 判断是否存在能处理此Intent的目标
+        if (callPhoneIntent.resolveActivity(packageManager) != null) {
+            startActivity(callPhoneIntent)
+        } else {
+            Toast.makeText(this, &quot;抱歉，此设备找不到拨号应用&quot;, Toast.LENGTH_SHORT).show()
+        }
+    }
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="tag">
+                    Android
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wl-go.github.io/post/android-zi-yuan-wen-jian-drawable-zhuang-tai-lie-biao-zi-yuan/">
+                  <h3 class="post-title">
+                    Android资源文件——Drawable状态列表资源
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Kotlin——作用域函数 | wlgo 博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1609744348410">
+<link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+学习Kotlin官方文档的记录
+
+let、run、with、apply 以及 also
+let
+这些函数的作用：在一个对象上执行一个代码块（Lambda表达式），不同的是这个对象在块中如何使用，以及整个表达式的结果是什么
+let
+
+上下文..." />
+    <meta name="keywords" content="Kotlin" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wl-go.github.io">
+        <img src="https://wl-go.github.io/images/avatar.png?v=1609744348410" class="site-logo">
+        <h1 class="site-title">wlgo 博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      记录学习中的点点滴滴！
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Kotlin——作用域函数</h2>
+            <div class="post-date">2020-12-28</div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>学习Kotlin官方文档的记录</p>
+</blockquote>
+<p><code>let</code>、<code>run</code>、<code>with</code>、<code>apply</code> 以及 <code>also</code></p>
+<p><a href="let">let</a></p>
+<p>这些函数的作用：<strong>在一个对象上执行一个代码块（<code>Lambda表达式</code>），不同的是这个对象在块中如何使用，以及整个表达式的结果是什么</strong></p>
+<h1 id="let">let</h1>
+<blockquote>
+<p>上下文对象作为 lambda 表达式的<code>参数（it）</code>来访问。<font style='color:red'>返回值是<code>lambda 表达式的结果</code></font></p>
+</blockquote>
+<h2 id="在调用链的结果上调用一个或多个函数">在调用链的结果上调用一个或多个函数</h2>
+<pre><code class="language-kotlin">val numbers = mutableListOf(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;)
+val resultList = numbers.map { it.length }.filter { it &gt; 3 }
+println(resultList)
+// 使用let简化，不需要resultList变量
+// 若代码块仅包含以 it 作为参数的单个函数，则可以使用方法引用(::)代替 lambda 表达式
+// ::println -&gt; println(it)
+numbers.map { it.length }.filter { it &gt; 3 }.let{::println} 
+</code></pre>
+<h2 id="用于仅使用非空值执行代码块">用于仅使用非空值执行代码块</h2>
+<blockquote>
+<p>如需对非空对象执行操作，可对其使用安全调用操作符 <code>?.</code>并调用 <code>let</code> 在 lambda 表达式中执行操作</p>
+</blockquote>
+<pre><code class="language-kotlin">val str: String? = &quot;Hello&quot; 
+val length = str?.let { 
+    println(&quot;$it&quot;)
+    it.length
+}
+</code></pre>
+<h2 id="引入作用域受限的局部变量以提高代码的可读性">引入作用域受限的局部变量以提高代码的可读性</h2>
+<blockquote>
+<p>如需为上下文对象定义一个新变量，可提供其名称作为 lambda 表达式参数来替默认的 it</p>
+</blockquote>
+<pre><code class="language-kotlin">val numbers = listOf(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;)
+val modifiedFirstItem = numbers.first().let { firstItem -&gt;
+    println(&quot;$firstItem&quot;)
+    if (firstItem.length &gt;= 5) firstItem else &quot;!&quot; + firstItem + &quot;!&quot;
+}.toUpperCase()
+println(&quot;$modifiedFirstItem&quot;)
+</code></pre>
+<h1 id="with">with</h1>
+<blockquote>
+<p>一个非扩展函数：<code>上下文对象作为参数传递</code>，但是在 lambda 表达式内部，它可以作为<code>接收者（this）使用</code>。 <font style='color:red'>返回值是 lambda 表达式结果</font></p>
+</blockquote>
+<blockquote>
+<p><em>建议使用 <code>with</code> 来调用上下文对象上的函数，而不使用 lambda 表达式结果。 在代码中，with 可以理解为<code>“对于这个对象，执行以下操作。”</code></em></p>
+</blockquote>
+<h2 id="对于这个对象执行以下操作">对于这个对象，执行以下操作</h2>
+<pre><code class="language-kotlin">val numbers = mutableListOf(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;)
+with(numbers) {
+    println(&quot;'with' is called with argument $this&quot;)
+    println(&quot;It contains $size elements&quot;)
+}
+</code></pre>
+<h2 id="引入一个辅助对象其属性或函数将用于计算一个值">引入一个辅助对象，其属性或函数将用于计算一个值</h2>
+<pre><code class="language-kotlin">val numbers = mutableListOf(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;)
+val firstAndLast = with(numbers) {
+    &quot;The first element is ${first()},&quot; +
+    &quot; the last element is ${last()}&quot;
+}
+println(firstAndLast)
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://wl-go.github.io/tag/1MzddxKV2/" class="tag">
+                    Kotlin
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wl-go.github.io/post/android-chang-yong-intent/">
+                  <h3 class="post-title">
+                    Android常用Intent
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

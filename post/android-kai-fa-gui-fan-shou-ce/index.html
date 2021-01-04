@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Android开发规范手册 | wlgo 博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1609744348410">
+<link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+学习《阿里巴巴Android开发手册》笔记
+
+Android资源文件命名
+
+小写单词+下划线的方式命名
+
+
+
+资源文件命名带上模块名称
+
+
+layout文件的命名方式
+
+Activity 的 layout 以 module_activit..." />
+    <meta name="keywords" content="Android" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wl-go.github.io">
+        <img src="https://wl-go.github.io/images/avatar.png?v=1609744348410" class="site-logo">
+        <h1 class="site-title">wlgo 博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      记录学习中的点点滴滴！
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Android开发规范手册</h2>
+            <div class="post-date">2020-12-28</div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>学习《阿里巴巴Android开发手册》笔记</p>
+</blockquote>
+<h1 id="android资源文件命名">Android资源文件命名</h1>
+<blockquote>
+<p>小写单词+下划线的方式命名</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>资源文件</strong>命名带上<strong>模块名称</strong></p>
+</li>
+<li>
+<p><strong>layout文件</strong>的命名方式</p>
+<ul>
+<li>Activity 的 layout 以 <strong>module_activity</strong> 开头</li>
+<li>Fragment 的 layout 以 <strong>module_fragment</strong> 开头</li>
+<li>Dialog 的 layout 以 <strong>module_dialog</strong> 开头</li>
+<li>include 的 layout 以 <strong>module_include</strong> 开头</li>
+<li>ListView 的行 layout 以 <strong>module_list_item</strong> 开头</li>
+<li>RecyclerView 的 item layout 以 <strong>module_recycle_item</strong> 开头</li>
+<li>GridView 的行 layout 以 <strong>module_grid_item</strong> 开头</li>
+</ul>
+</li>
+<li>
+<p><strong>drawable 资源名称</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>模块名_业务功能描述_控件描述_控件状态限定词<br>
+<code>module_login_btn_pressed</code></p>
+</blockquote>
+<ol start="4">
+<li><strong>anim 资源名称</strong></li>
+</ol>
+<blockquote>
+<p>模块名_逻辑名称_[方向|序号]<br>
+<code>tween 动画资源 ： 尽可能以通用的动画名称命名，如 module_fade_in ,module_fade_out ,module_push_down_in (动画+方向)；</code><br>
+<code>frame 动画资源：尽可能以模 块+功能命名+序号。如：module_loading_grey_001</code></p>
+</blockquote>
+<ol start="5">
+<li><strong>color 资源，module_colors.xml</strong></li>
+</ol>
+<blockquote>
+<p>模块名_逻辑名称_颜色，#AARRGGBB 格式<br>
+<code>&lt;color name=&quot;module_btn_bg_color&quot;&gt;#FF550055&lt;/color&gt;</code></p>
+</blockquote>
+<ol start="6">
+<li><strong>dimen 资源，module_dimens.xml</strong></li>
+</ol>
+<blockquote>
+<p>模块名_描述信息<br>
+<code>&lt;dimen name=&quot;module_horizontal_line_height&quot;&gt;1dp&lt;/dimen&gt;</code></p>
+</blockquote>
+<ol start="7">
+<li><strong>style 资源，module_styles.xml</strong></li>
+</ol>
+<blockquote>
+<p>父 style 名称.当前 style 名称</p>
+</blockquote>
+<ol start="8">
+<li><strong>string资源，module_strings.xml</strong></li>
+</ol>
+<blockquote>
+<p>模块名_逻辑名称<br>
+<code>moudule_login_tips,module_homepage_notice_desc</code></p>
+</blockquote>
+<ol start="9">
+<li>** Id 资源缩写表**<br>
+| 控件             | 缩写 |<br>
+| ---------------- | ---- |<br>
+| LinearLayout     | ll   |<br>
+| RelativeLayout   | rl   |<br>
+| ConstraintLayout | cl   |<br>
+| ListView         | lv   |<br>
+| ScollView        | sv   |<br>
+| TextView         | tv   |<br>
+| Button           | btn  |<br>
+| ImageView        | iv   |<br>
+| CheckBox         | cb   |<br>
+| RadioButton      | rb   |<br>
+| EditText         | et   |<br>
+| <strong>其他控件</strong>         | ---    |<br>
+| ProgressBar | progress_bar |<br>
+| DatePicker | date_picker |</li>
+</ol>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="tag">
+                    Android
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wl-go.github.io/post/die-dai-qi-mo-shi-iterator/">
+                  <h3 class="post-title">
+                    迭代器模式（Iterator）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

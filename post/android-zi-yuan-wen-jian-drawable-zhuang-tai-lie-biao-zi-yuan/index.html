@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Android资源文件——Drawable状态列表资源 | wlgo 博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1609744348410">
+<link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+StateListDrawable 是在 XML 文件中定义的可绘制对象，它会根据对象状态，使用多个不同的图像来表示同一个图形。
+例如，Button 可以是多种不同状态（按下、聚焦或这两种状态都不是）中的其中一种，并且您可利用状态列表可绘..." />
+    <meta name="keywords" content="Android" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wl-go.github.io">
+        <img src="https://wl-go.github.io/images/avatar.png?v=1609744348410" class="site-logo">
+        <h1 class="site-title">wlgo 博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      记录学习中的点点滴滴！
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Android资源文件——Drawable状态列表资源</h2>
+            <div class="post-date">2020-12-28</div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>StateListDrawable 是在 XML 文件中定义的可绘制对象，它会根据对象状态，使用多个不同的图像来表示同一个图形。<br>
+例如，Button 可以是多种不同状态（按下、聚焦或这两种状态都不是）中的其中一种，并且您可利用状态列表可绘制对象，为每种状态提供不同的背景图片。<br>
+在每个状态变更期间，将从上到下遍历状态列表，并使用第一个与当前状态匹配的项目。</p>
+</blockquote>
+<h1 id="文件位置">文件位置</h1>
+<p><code>res/drawable/filename.xml</code></p>
+<h1 id="编译后的资源数据类型">编译后的资源数据类型</h1>
+<p><code>指向 StateListDrawable 的资源指针</code></p>
+<h1 id="资源引用">资源引用</h1>
+<ol>
+<li>代码中：<code>R.drawable.filename</code></li>
+<li>xml中：<code>@[package:]drawable/filename</code></li>
+</ol>
+<h1 id="语法">语法</h1>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:constantSize=[&quot;true&quot; | &quot;false&quot;]
+    android:dither=[&quot;true&quot; | &quot;false&quot;]
+    android:variablePadding=[&quot;true&quot; | &quot;false&quot;] &gt;
+    &lt;item
+        android:drawable=&quot;@[package:]drawable/drawable_resource&quot;
+        android:state_pressed=[&quot;true&quot; | &quot;false&quot;]
+        android:state_focused=[&quot;true&quot; | &quot;false&quot;]
+        android:state_hovered=[&quot;true&quot; | &quot;false&quot;]
+        android:state_selected=[&quot;true&quot; | &quot;false&quot;]
+        android:state_checkable=[&quot;true&quot; | &quot;false&quot;]
+        android:state_checked=[&quot;true&quot; | &quot;false&quot;]
+        android:state_enabled=[&quot;true&quot; | &quot;false&quot;]
+        android:state_activated=[&quot;true&quot; | &quot;false&quot;]
+        android:state_window_focused=[&quot;true&quot; | &quot;false&quot;] /&gt;
+&lt;/selector&gt;
+</code></pre>
+<h1 id="元素说明">元素说明</h1>
+<table>
+<thead>
+<tr>
+<th>元素名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selector</td>
+<td>根元素，里面包含一个或多个item</td>
+</tr>
+<tr>
+<td>android:constantSize</td>
+<td>布尔值。如果可绘制对象报告的内部大小在状态变更时保持不变，则值为“true”（大小是所有状态的最大值）</td>
+</tr>
+<tr>
+<td>android:dither</td>
+<td>布尔值。值为“true”时，将在位图的像素配置与屏幕不同时（例如：ARGB 8888 位图和 RGB 565 屏幕）启用位图的抖动</td>
+</tr>
+<tr>
+<td>android:variablePadding</td>
+<td>布尔值。如果可绘制对象的内边距应根据选择的当前状态而变化，则值为“true”</td>
+</tr>
+<tr>
+<td>item</td>
+<td>定义在某些状态下使用的drawable，状态通过其属性来描述</td>
+</tr>
+<tr>
+<td><em>item 属性</em></td>
+<td></td>
+</tr>
+<tr>
+<td>android:drawable</td>
+<td>可绘制对象资源</td>
+</tr>
+<tr>
+<td>android:state_pressed</td>
+<td>布尔值，在按下对象时（例如轻触/点按了按钮时）使用，则为“true”</td>
+</tr>
+<tr>
+<td>android:state_focused</td>
+<td>布尔值。如果此项应在聚焦对象时（例如使用轨迹球/方向键突出显示按钮时）使用，则为“true”</td>
+</tr>
+<tr>
+<td>android:state_selected</td>
+<td>布尔值。如果此项应在选择对象时（例如打开标签页时）使用，则为“true”</td>
+</tr>
+<tr>
+<td>android:state_checkable</td>
+<td>布尔值。如果此项应在对象可勾选时使用，则为“true”，仅适用于对象可在可勾选和不可勾选的微件之间转换的情况</td>
+</tr>
+<tr>
+<td>android:state_checked</td>
+<td>布尔值。如果此项应在勾选对象时使用，则为“true”</td>
+</tr>
+<tr>
+<td>android:state_enabled</td>
+<td>布尔值。如果此项应在启用对象（能够接收轻触/点按事件）时使用</td>
+</tr>
+<tr>
+<td>android:state_window_focused</td>
+<td>布尔值。如果此项应在应用窗口具有焦点（应用位于前台）时使用，则为“true”</td>
+</tr>
+<tr>
+<td>android:state_hovered</td>
+<td>布尔值。如果当光标悬停在对象上时应使用此项目，则值为“true”，此项为 API 级别 14 新引入的配置</td>
+</tr>
+<tr>
+<td>android:state_activated</td>
+<td>布尔值。如果在对象激活作为持续选择（例如，在持续导航视图中“突出显示”之前选中的列表项）时应使用此项目，则值为“true”</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="tag">
+                    Android
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wl-go.github.io/post/android-zi-yuan-wen-jian-yan-se-zhuang-tai-lie-biao-zi-yuan/">
+                  <h3 class="post-title">
+                    Android资源文件——颜色状态列表资源
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
