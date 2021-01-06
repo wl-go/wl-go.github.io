@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1609921728597">
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1609921804673">
 <link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
 
 
@@ -32,7 +32,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://wl-go.github.io">
-        <img src="https://wl-go.github.io/images/avatar.png?v=1609921728597" class="site-logo">
+        <img src="https://wl-go.github.io/images/avatar.png?v=1609921804673" class="site-logo">
         <h1 class="site-title">wlgo 博客</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -231,7 +231,7 @@ registerReceiver(receiver, filter, Manifest.permission.SEND_SMS, null )
 <p>由于接收器的 onReceive(Context, Intent) 方法在<code>主线程</code>上运行，因此它会快速执行并返回。如果您需要执行长时间运行的工作，请谨慎生成线程或启动后台服务，因为系统可能会在 onReceive() 返回后终止整个进程。建议：</p>
 <ol>
 <li>在接收器的 <code>onReceive()</code>方法中调用 <code>goAsync()</code>，并将 BroadcastReceiver.PendingResult 传递给后台线程。这样，在从 onReceive() 返回后，广播仍可保持活跃状态。不过，<code>即使采用这种方法，系统仍希望您非常快速地完成广播（在 10 秒以内）</code>。为避免影响主线程，它允许您将工作移到另一个线程。</li>
-<li>使用 <code>JobScheduler</code> 调度作业</li>
+<li>使用 <code>JobScheduler</code> 调度作业，<a href="https://developer.android.google.cn/guide/background">后台任务</a></li>
 </ol>
 </li>
 <li>

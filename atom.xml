@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wl-go.github.io</id>
     <title>wlgo 博客</title>
-    <updated>2021-01-06T08:28:55.762Z</updated>
+    <updated>2021-01-06T08:30:08.118Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wl-go.github.io"/>
     <link rel="self" href="https://wl-go.github.io/atom.xml"/>
@@ -149,7 +149,7 @@ registerReceiver(receiver, filter, Manifest.permission.SEND_SMS, null )
 <p>由于接收器的 onReceive(Context, Intent) 方法在<code>主线程</code>上运行，因此它会快速执行并返回。如果您需要执行长时间运行的工作，请谨慎生成线程或启动后台服务，因为系统可能会在 onReceive() 返回后终止整个进程。建议：</p>
 <ol>
 <li>在接收器的 <code>onReceive()</code>方法中调用 <code>goAsync()</code>，并将 BroadcastReceiver.PendingResult 传递给后台线程。这样，在从 onReceive() 返回后，广播仍可保持活跃状态。不过，<code>即使采用这种方法，系统仍希望您非常快速地完成广播（在 10 秒以内）</code>。为避免影响主线程，它允许您将工作移到另一个线程。</li>
-<li>使用 <code>JobScheduler</code> 调度作业</li>
+<li>使用 <code>JobScheduler</code> 调度作业，<a href="https://developer.android.google.cn/guide/background">后台任务</a></li>
 </ol>
 </li>
 <li>
