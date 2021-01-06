@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wl-go.github.io</id>
     <title>wlgo 博客</title>
-    <updated>2021-01-06T08:30:08.118Z</updated>
+    <updated>2021-01-06T08:31:36.040Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wl-go.github.io"/>
     <link rel="self" href="https://wl-go.github.io/atom.xml"/>
@@ -156,6 +156,7 @@ registerReceiver(receiver, filter, Manifest.permission.SEND_SMS, null )
 <p>请勿从广播接收器启动 Activity，否则会影响用户体验，尤其是有多个接收器时。相反，可以考虑显示通知。</p>
 </li>
 </ol>
+<h2 id="隐式广播例外情况"><a href="https://developer.android.google.cn/guide/components/broadcast-exceptions">隐式广播例外情况</a></h2>
 ]]></content>
     </entry>
     <entry>
