@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Android 视图绑定（ViewBinding） | wlgo 博客</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wl-go.github.io/favicon.ico?v=1610679848335">
+<link rel="stylesheet" href="https://wl-go.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+通过视图绑定功能，可以更轻松地编写可与视图交互的代码。在模块中启用视图绑定之后，系统会为该模块中的每个 XML 布局文件生成一个绑定类（驼峰格式+Binding）。绑定类的实例包含对在相应布局中具有 ID 的所有视图的直接引用
+
+使用
+a..." />
+    <meta name="keywords" content="Android" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wl-go.github.io">
+        <img src="https://wl-go.github.io/images/avatar.png?v=1610679848335" class="site-logo">
+        <h1 class="site-title">wlgo 博客</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      记录学习中的点点滴滴！
+    </div>
+    <div class="site-footer">
+       | <a class="rss" href="https://wl-go.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Android 视图绑定（ViewBinding）</h2>
+            <div class="post-date">2021-01-15</div>
+            
+            <div class="post-content" v-pre>
+              <blockquote>
+<p>通过视图绑定功能，可以更轻松地编写可与视图交互的代码。在模块中启用视图绑定之后，系统会为该模块中的每个 XML 布局文件生成一个绑定类（<code>驼峰格式+Binding</code>）。绑定类的实例包含对在相应布局中具有 ID 的所有视图的直接引用</p>
+</blockquote>
+<h1 id="使用">使用</h1>
+<h2 id="appbuildgradle开启视图绑定">app（build.gradle）开启视图绑定</h2>
+<pre><code class="language-groovy">android{
+    buildFeatures {
+        viewBinding = true // 视图绑定
+        // dataBinding = true // 数据绑定
+    }
+}
+</code></pre>
+<h2 id="忽略某个布局文件不使用绑定">忽略某个布局文件（不使用绑定）</h2>
+<p>需要在布局文件<strong>根视图</strong>上加<code>tools:viewBindingIgnore=&quot;true&quot;</code></p>
+<h2 id="在-activity-中使用视图绑定">在 Activity 中使用视图绑定</h2>
+<p>在 Activity 的 <code>onCreate()</code> 方法中执行以下步骤：</p>
+<ol>
+<li>调用生成的绑定类中包含的静态<code>inflate()</code>方法。此操作会创建该绑定类的实例以供 Activity 使用。</li>
+<li>通过调用 <code>getRoot()</code>方法或使用 Kotlin 属性语法<code>获取对根视图的引用</code>。</li>
+<li>将<code>根视图</code>传递到 <code>setContentView()</code>，使其成为屏幕上的活动视图。</li>
+</ol>
+<pre><code class="language-kotlin">class MainActivity : AppCompatActivity() {
+
+    private lateinit var bind: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // 1.
+        bind = ActivityMainBinding.inflate(layoutInflater)
+        // 2.
+        val view = bind.root
+        // 3.
+        setContentView(view)
+    }
+}
+</code></pre>
+<h2 id="在-fragment-中使用视图绑定">在 Fragment 中使用视图绑定</h2>
+<p><font color='red'><strong>注意：Fragment 的存在时间比其视图长。请务必在 Fragment 的 onDestroyView() 方法中清除对绑定类实例的所有引用。</strong></font></p>
+<h3 id="fragment布局未inflate">Fragment布局未inflate</h3>
+<p>在 <code>Fragment</code> 的 <code>onCreateView()</code>方法中执行以下步骤：</p>
+<ol>
+<li>调用生成的绑定类中包含的静态 <code>inflate()</code> 方法。此操作会创建该绑定类的实例以供 Fragment 使用。</li>
+<li>通过调用 <code>getRoot()</code> 方法或使用 Kotlin 属性语法获取对根视图的引用。</li>
+<li>从 <code>onCreateView()</code>方法返回根视图，使其成为屏幕上的活动视图。</li>
+</ol>
+<pre><code class="language-kotlin">    private var _binding: HomeFragmentBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = HomeFragmentBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+    }
+
+    // 去除引用
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+</code></pre>
+<h3 id="fragment布局已经inflate">Fragment布局已经inflate</h3>
+<p>注意：<code>inflate()</code>方法会要求您传入布局膨胀器。如果布局已膨胀，可以调用绑定类的静态 <code>bind()</code>方法</p>
+<pre><code class="language-kotlin">class BindFragment : Fragment(R.layout.fragment_blank) {
+
+    private var fragmentBlankBinding: FragmentBlankBinding? = null
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentBlankBinding.bind(view)
+        fragmentBlankBinding = binding
+        binding.textViewFragment.text = getString(string.hello_from_vb_bindfragment)
+    }
+
+    override fun onDestroyView() {
+        fragmentBlankBinding = null
+        super.onDestroyView()
+    }
+}
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://wl-go.github.io/tag/pkTceeoKE/" class="tag">
+                    Android
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wl-go.github.io/post/intent/">
+                  <h3 class="post-title">
+                    Intent
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
